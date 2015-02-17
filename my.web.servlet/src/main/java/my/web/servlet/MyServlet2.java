@@ -8,9 +8,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/serv")
+@WebServlet("/serv2")
 // replaces the web.xml config
-public class MyServlet extends GenericServlet {
+public class MyServlet2 extends GenericServlet {
 
 	/**
 	 * 
@@ -21,11 +21,9 @@ public class MyServlet extends GenericServlet {
 	public void service(ServletRequest request, ServletResponse response)
 			throws ServletException, IOException {
 
-		String p1 = request.getParameter("p1");
-		String p2 = request.getParameter("p2");
+		Object attribute = getServletContext().getAttribute("attr1");
 		response.getWriter().write(
-				"Hello I'm a your servlet M. " + p1 + " " + p2);
-		getServletContext().setAttribute("attr1", new Integer(365));
+				"Hello I'm a your 2nd servlet and I can reuse the attribute set by the first servlet into the ServletContext " + attribute);
 	}
 
 }
