@@ -1,5 +1,6 @@
 package my.java.snippets.io;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -11,18 +12,20 @@ import java.util.List;
 
 /**
  * Duplidates an input folder and its sub files into renamed folders Usage: java
- * -jar cloneFolder.jar sourceDirPath targetDirPath clone1Name[, clone2name,
- * ...]
+ * -jar cloneFolder.jar sourceDirPath targetDirPath clone1Name[, clone2name,...]
  * 
  * @author elarbiaboussoror
  *
  */
 
 public class FolderDuplicator {
+	final static String HELP_MSG = "java -jar script_gen_folders.jar sourceDirPath targetDirPath clone1Name[, clone2name,...]";
 
 	public static void main(String[] args) {
 		if (args.length < 2) {
-			System.err.println("Usage error: not enough arguments");
+			System.err
+					.println("Usage error: not enough arguments. Correct usage: "
+							+ HELP_MSG);
 			return;
 		}
 
@@ -36,10 +39,12 @@ public class FolderDuplicator {
 		}
 
 		for (String fName : folderNames) {
-			try {
+			try {// clone the folder if doesn't exist
+                System.out.println("code completion");
 				cloneFolder(srcFolderPath, fName);
 			} catch (IOException e) {
 				e.printStackTrace();
+
 			}
 		}
 
@@ -51,6 +56,7 @@ public class FolderDuplicator {
 		Path srcPath = Paths.get(srcFolderPath + "/__MODEL__");
 		Path targetPath = Paths.get(srcFolderPath + "/" + fName);
 
+		if (new File(targetPath.toString()).exists()) return;
 		Files.copy(srcPath, targetPath, StandardCopyOption.REPLACE_EXISTING);
 
 		DirectoryStream<Path> newDirectoryStream = Files
@@ -67,7 +73,7 @@ public class FolderDuplicator {
 
 	private static String createName(String originalName, String fileName) {
 		String[] splitted = originalName.split("\\.");
-		return splitted[0]+"_"+fileName+"."+splitted[1];
+		return splitted[0] + "_" + fileName + "." + splitted[1];
 	}
 
 }
