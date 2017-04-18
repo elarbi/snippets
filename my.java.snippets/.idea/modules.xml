@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/my.java.snippets.iml" filepath="$PROJECT_DIR$/my.java.snippets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/my.java.snippets.iml" filepath="$PROJECT_DIR$/.idea/modules/my.java.snippets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/my.java.snippets_main.iml" filepath="$PROJECT_DIR$/.idea/modules/my.java.snippets_main.iml" group="my.java.snippets" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/my.java.snippets_test.iml" filepath="$PROJECT_DIR$/.idea/modules/my.java.snippets_test.iml" group="my.java.snippets" />
     </modules>
   </component>
 </project>
