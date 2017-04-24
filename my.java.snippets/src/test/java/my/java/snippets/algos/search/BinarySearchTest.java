@@ -22,13 +22,14 @@ public class BinarySearchTest {
 
     @Before
     public void setUp() {
-        listSize = Integer.MAX_VALUE / 30;
+        listSize = Integer.MAX_VALUE / 30_000;
         list = new ArrayList<Long>(listSize);
 
         for (long j = 0; j < listSize; j++) {
             list.add(j);
         }
-        //list = Arrays.asList(1, 2, 5, 8, 10, 34, 50);
+        //list = Arrays.asList(1L, 2L, 5L, 8L, 10L, 34L, 50L);
+        //list = Arrays.asList(1L, 2L, 5L, 8L);
     }
 
 
@@ -39,13 +40,14 @@ public class BinarySearchTest {
         System.err.println("list memory footprint: " + new Long(listSize) * 16L / 1024L / 1024L / 1024L + "Gbytes");
 
 
-        //assertThatListElementAreFound(list);
-
         long startTime = System.currentTimeMillis();
-        binarySearchAllElementsInTheList(list);
+
+//        binarySearchAllElementsInTheList(list);
+        assertThatListElementAreFound(list);
+
         long endTime = System.currentTimeMillis();
         long elapsed = endTime - startTime;
-
+//
         System.err.println("Ellapsed in s: " + elapsed / 1000);
 
     }
@@ -53,9 +55,12 @@ public class BinarySearchTest {
     private void binarySearchAllElementsInTheList(List<Long> list) {
         Long[] a = list.toArray(new Long[]{});
         for (Long element : list) {
+
             int indexOfElement = Arrays.binarySearch(a, element);
 
-            //BinarySearch.binarySearch(element, list, 0);
+//            BinarySearch.binarySearch(element, list, 0);
+
+//            BinarySearch.binarySearch(element, list);
 
 
         }
@@ -63,14 +68,16 @@ public class BinarySearchTest {
 
     private void assertThatListElementAreFound(List<Long> list) {
 
+        Long[] a = list.toArray(new Long[]{});
 
         for (Long element : list) {
 
-            Integer elementIndex = list.indexOf(element);
+            //Integer elementIndex = list.indexOf(element);
+             int indexOfElement = Arrays.binarySearch(a, element);
 
-            int indexOfElement = BinarySearch.binarySearch(element, list, 0);
+//            int indexOfElement = BinarySearch.binarySearch(element, list);
 
-            assertThat(indexOfElement).isEqualTo(elementIndex);
+            //assertThat(indexOfElement).isEqualTo(elementIndex);
 
         }
     }
