@@ -17,13 +17,12 @@ public class BinarySearch {
     public static int binarySearch(Long element, List<Long> list) {
         int start = 0, end = list.size()-1;
         int mid = 0;
-        while (start < end) {
-            mid = start + Math.round(end-start/ 2);
+        while (start <= end) {
+            mid = start + Math.round(end-start/ 2); // or start+end/2
             if (element.equals(list.get(mid))) return mid;
             else if(element < list.get(mid)) end = mid-1;
             else start = mid+1;
         }
-        if(list.get(start).equals(element)) return start;
         return -1;
     }
 

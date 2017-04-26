@@ -73,9 +73,9 @@ public class BinarySearchTest {
         for (Long element : list) {
 
             //Integer elementIndex = list.indexOf(element);
-             int indexOfElement = Arrays.binarySearch(a, element);
+            // int indexOfElement = Arrays.binarySearch(a, element);
 
-//            int indexOfElement = BinarySearch.binarySearch(element, list);
+          int indexOfElement = BinarySearch.binarySearch(element, list);
 
             //assertThat(indexOfElement).isEqualTo(elementIndex);
 
