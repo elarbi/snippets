@@ -24,9 +24,9 @@ public class BidirectionalCrypto {
     };
     
 	public static void main(String[] args) throws Exception {
-        String originalPassword = "secret";
-        System.out.println("Original password: " + originalPassword);
-        String encryptedPassword = encrypt(originalPassword);
+        String originalPwd = "secret";
+        System.out.println("Original password: " + originalPwd);
+        String encryptedPassword = encrypt(originalPwd);
         System.out.println("Encrypted password: " + encryptedPassword);
         String decryptedPassword = decrypt(encryptedPassword);
         System.out.println("Decrypted password: " + decryptedPassword);
